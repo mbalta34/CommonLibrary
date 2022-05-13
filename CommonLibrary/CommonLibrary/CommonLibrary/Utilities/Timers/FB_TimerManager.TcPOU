@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_TimerManager" Id="{15ecb0f5-db53-447e-bb3c-cfce3e6e2076}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_TimerManager
+VAR
+	_aTimers: ARRAY [1..TIMERS.MAX_TIMER] OF I_Timer;
+	_count: INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[FOR ]]></ST>
+    </Implementation>
+    <Method Name="Register" Id="{b01fc9cd-b3fe-43aa-adad-67ca8d1daf7f}">
+      <Declaration><![CDATA[METHOD PUBLIC Register : BOOL
+VAR_INPUT
+	Timer: I_Timer;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_TimerManager">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_TimerManager.Register">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="LoopIterator" Id="{c895961f-2bac-4da7-ba9f-e3ff4e9d4be9}">
+    <Declaration><![CDATA[TYPE LoopIterator : INT; END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

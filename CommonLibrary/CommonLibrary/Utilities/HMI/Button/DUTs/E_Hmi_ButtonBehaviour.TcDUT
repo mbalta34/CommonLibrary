@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="E_Hmi_ButtonBehaviour" Id="{28bc2804-25f9-43db-84f8-da9946bdddf2}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE E_Hmi_ButtonBehaviour :
+(
+	MomentaryOn,
+	MomentaryOff,
+	Toggle,
+	Set,
+	Reset
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="E_Hmi_LedColor" Id="{dfd7e538-9c90-4783-83cd-3d5cdbc339f0}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE E_Hmi_LedColor :
+(
+	Yellow := 0,
+	YellowGreen := 1,
+	Green := 2,
+	BlueGreen := 3,
+	Blue := 4,
+	BlueViolet := 5,
+	Violet := 6,
+	RedViolet := 7,
+	Red := 8,
+	RedOrange := 9,
+	Orange := 10,
+	YellowOrange := 11,
+	White := 12,
+	Gray := 13,
+	Black := 14,
+	Blank := 15
+)UINT;
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

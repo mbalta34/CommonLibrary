@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="S_Hmi_Switch" Id="{0d68efc3-8c97-4e42-aeb6-19d53aaaeaa5}">
+    <Declaration><![CDATA[TYPE S_Hmi_Switch :
+STRUCT
+	Click: BOOL;
+	Enabled: BOOL;
+	Visibility: BOOL;
+	Value: BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

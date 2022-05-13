@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_TimerManager" Id="{15ecb0f5-db53-447e-bb3c-cfce3e6e2076}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_TimerManager
+VAR
+	_aTimers: ARRAY [1..TIMERS.MAX_TIMER] OF I_Timer;
+	_count: INT := 1;
+
+	_timerIter: LoopIterator;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[FOR _timerIter := 1 TO _count DO
+	_aTimers[_timerIter].Execute();
+END_FOR]]></ST>
+    </Implementation>
+    <Method Name="Register" Id="{b01fc9cd-b3fe-43aa-adad-67ca8d1daf7f}">
+      <Declaration><![CDATA[METHOD PUBLIC Register : BOOL
+VAR_INPUT
+	iTimer: I_Timer;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF ASSERT(iTimer <> 0, CONCAT('FB_TimerManager: Invalid iTimer - ', TO_STRING(_count))) THEN
+	IF ASSERT(_count < TIMERS.MAX_TIMER, CONCAT('FB_TimerManager: Maximum amount of timer has ben exceeded - ', TO_STRING(_count + 1)))THEN
+		_count := _count + 1;
+		_aTimers[_count] := iTimer;
+	END_IF
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

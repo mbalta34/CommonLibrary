@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="ASSERT" Id="{be57aea1-06b2-4728-8914-c9a75b85e098}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION ASSERT : BOOL
+VAR_INPUT
+	passed: BOOL;
+	text: STRING;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF NOT passed THEN
+	ADSLOGSTR(msgCtrlMask := ADSLOG_MSGTYPE_ERROR, msgFmtStr := 'FAILED: %s', text);
+END_IF
+
+// Return the result of the assertion for further processing
+ASSERT := passed;]]></ST>
+    </Implementation>
+    <LineIds Name="ASSERT">
+      <LineId Id="15" Count="0" />
+      <LineId Id="17" Count="1" />
+      <LineId Id="20" Count="1" />
+      <LineId Id="7" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

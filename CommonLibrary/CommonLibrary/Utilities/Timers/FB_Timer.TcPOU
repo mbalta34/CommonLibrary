@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_Timer" Id="{cf83e778-4f9b-49e1-ad4e-e52c03835e4c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Timer IMPLEMENTS I_Timer
+VAR
+	_Timer: TON;
+
+	_done: BOOL;
+	_busy: BOOL;
+	_free: BOOL := TRUE;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Property Name="Busy" Id="{c9fb5124-bc69-4b54-b1d3-13ba468da833}">
+      <Declaration><![CDATA[PROPERTY PUBLIC Busy : BOOL]]></Declaration>
+      <Get Name="Get" Id="{afb43b8c-9eeb-4907-9e48-28ecc2779509}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[Busy := _busy;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="Done" Id="{886cc76c-76a9-404e-bdff-86b318cdb24d}">
+      <Declaration><![CDATA[PROPERTY PUBLIC Done : BOOL]]></Declaration>
+      <Get Name="Get" Id="{56338a4a-6803-4dde-990f-fb086704f76d}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[Done := _done;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="ElapsedTime" Id="{e7749abd-8541-461b-b5f3-0649c7956556}">
+      <Declaration><![CDATA[PROPERTY PUBLIC ElapsedTime : TIME]]></Declaration>
+      <Get Name="Get" Id="{8cf9ecfd-0ba2-4642-96c9-61d2e12f2716}">
+        <Declaration><![CDATA[
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[ElapsedTime := _Timer.ET;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Method Name="Execute" Id="{54c9b7de-94dc-4c2c-8a06-10b15fab4bcd}">
+      <Declaration><![CDATA[METHOD Execute
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[_Timer();
+
+IF _Timer.Q THEN
+	_done := TRUE;
+	_busy := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Register" Id="{06a570ed-0461-4998-a0bf-22c2f135ba1f}">
+      <Declaration><![CDATA[METHOD Register : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[Register := TIMERS.Manager.Register(THIS^);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Reset" Id="{fb1af245-de7f-4d60-be89-f5091a8e41b6}">
+      <Declaration><![CDATA[METHOD PUBLIC Reset]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[_Timer(IN := FALSE);
+
+_done := FALSE;
+_busy := FALSE;
+_free := TRUE;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Start" Id="{3720fc15-1a4e-4e99-8c08-e8707e20b76a}">
+      <Declaration><![CDATA[METHOD PUBLIC Start
+VAR_INPUT
+	delay: TIME;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF _free THEN
+	_Timer(IN := FALSE);
+	_Timer(IN := TRUE,
+			PT := delay);
+
+	_busy := TRUE;
+	_done := FALSE;
+	_free := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

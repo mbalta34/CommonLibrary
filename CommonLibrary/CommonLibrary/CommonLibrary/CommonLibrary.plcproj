@@ -1,0 +1,113 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <FileVersion>1.0.0.0</FileVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7ca9395d-6055-4782-86dc-e6f26aa73401}</ProjectGuid>
+    <SubObjectsSortedByName>True</SubObjectsSortedByName>
+    <DownloadApplicationInfo>true</DownloadApplicationInfo>
+    <WriteProductVersion>true</WriteProductVersion>
+    <GenerateTpy>false</GenerateTpy>
+    <Name>CommonLibrary</Name>
+    <ProgramVersion>3.1.4023.0</ProgramVersion>
+    <Application>{34b29f96-091d-4a49-a398-bed23ea32438}</Application>
+    <TypeSystem>{9bca9e6a-e1f9-4ef3-841d-66b292157dc4}</TypeSystem>
+    <Implicit_Task_Info>{dd778667-974c-4516-bb71-a01ca162e0cf}</Implicit_Task_Info>
+    <Implicit_KindOfTask>{99fa2ae7-b980-49a1-ba61-7cd1405e1a5e}</Implicit_KindOfTask>
+    <Implicit_Jitter_Distribution>{104d07bc-a683-45be-8be0-502173634bc4}</Implicit_Jitter_Distribution>
+    <LibraryReferences>{bfd4aee2-40cb-4edd-9e69-8054894204e7}</LibraryReferences>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="HMI" />
+    <Folder Include="HMI\Button\DUTs" />
+    <Folder Include="HMI\Button" />
+    <Folder Include="HMI\Led" />
+    <Folder Include="HMI\Led\DUTs" />
+    <Folder Include="HMI\Switch" />
+    <Folder Include="Utilities" />
+    <Folder Include="Utilities\DUTs" />
+    <Folder Include="Utilities\InitializeControl" />
+    <Folder Include="Utilities\Timers" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GVL_Param.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="HMI\Button\DUTs\E_Hmi_ButtonBehaviour.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HMI\Button\DUTs\S_Hmi_Button.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HMI\Button\FB_Hmi_Button.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HMI\Led\DUTs\E_Hmi_LedColor.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HMI\Led\DUTs\S_Hmi_Led.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HMI\Led\FB_Hmi_Led.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HMI\Switch\FB_Hmi_Switch.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utilities\DUTs\LoopIterator.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utilities\InitializeControl\ASSERT.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utilities\InitializeControl\FB_InitializeControl.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utilities\Timers\FB_Timer.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utilities\Timers\FB_TimerManager.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utilities\Timers\I_Timer.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utilities\Timers\TIMERS.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CommonLibrary.tmc">
+      <SubType>Content</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PlaceholderReference Include="Tc2_Standard">
+      <DefaultResolution>Tc2_Standard, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_Standard</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_System">
+      <DefaultResolution>Tc2_System, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_System</Namespace>
+    </PlaceholderReference>
+  </ItemGroup>
+  <ProjectExtensions>
+    <PlcProjectOptions>
+      <XmlArchive>
+        <Data>
+          <o xml:space="preserve" t="OptionKey">
+      <v n="Name">"&lt;ProjectRoot&gt;"</v>
+      <d n="SubKeys" t="Hashtable" />
+      <d n="Values" t="Hashtable" />
+    </o>
+        </Data>
+        <TypeList>
+          <Type n="Hashtable">System.Collections.Hashtable</Type>
+          <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
+          <Type n="String">System.String</Type>
+        </TypeList>
+      </XmlArchive>
+    </PlcProjectOptions>
+  </ProjectExtensions>
+</Project>

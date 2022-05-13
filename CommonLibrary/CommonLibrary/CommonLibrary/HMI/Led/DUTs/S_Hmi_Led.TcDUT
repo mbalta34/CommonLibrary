@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="S_Hmi_Led" Id="{ef9f3256-19b9-4a51-9dc6-fdf5bfb77623}">
+    <Declaration><![CDATA[TYPE S_Hmi_Led :
+STRUCT
+	OnOff: BOOL;
+	OnColor: UINT;
+	OffColor: UINT;
+	Visibility: BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

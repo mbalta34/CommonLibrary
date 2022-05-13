@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_Hmi_Switch" Id="{88713cc5-8b82-46e1-8462-6e1bd39a71c9}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Hmi_Switch EXTENDS FB_Hmi_Component
+VAR
+	_rSwitch: REFERENCE TO S_Hmi_Switch;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF _initialized THEN
+	IF _rSwitch.Click THEN
+		Toggle();
+	END_IF
+END_IF
+
+_rSwitch.Click := FALSE;]]></ST>
+    </Implementation>
+    <Property Name="Enabled" Id="{e7726983-7a03-4966-b733-88091e0634c4}">
+      <Declaration><![CDATA[PROPERTY PUBLIC Enabled : BOOL]]></Declaration>
+      <Set Name="Set" Id="{9dc6da4a-5294-469e-a003-543fcf8ab797}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_rSwitch.Enabled := Enabled;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Method Name="Initialize" Id="{559c6346-41d8-460b-a26e-b14f3b23b94d}">
+      <Declaration><![CDATA[METHOD PUBLIC Initialize : BOOL
+VAR_INPUT
+	rSwitch: REFERENCE TO S_Hmi_Switch;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF __ISVALIDREF(rSwitch) THEN
+	_rSwitch REF= rSwitch;
+
+	_initialized := Initialize := TRUE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Reset" Id="{17ed8b5e-134b-4111-b89b-b4755b9d56b7}">
+      <Declaration><![CDATA[METHOD PUBLIC Reset
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF _initialized AND_THEN _rSwitch.Enabled THEN
+	_rSwitch.Value := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Set" Id="{b83c55f3-9c64-4f44-8441-dfa045eac25c}">
+      <Declaration><![CDATA[METHOD PUBLIC Set
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF _initialized AND_THEN _rSwitch.Enabled THEN
+	_rSwitch.Value := TRUE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Toggle" Id="{6bd9f366-31f1-4de6-9e3c-2c0e9b172c9e}">
+      <Declaration><![CDATA[METHOD PUBLIC Toggle]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF _initialized AND_THEN _rSwitch.Enabled THEN
+	_rSwitch.Value := NOT _rSwitch.Value;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="Value" Id="{51018a77-834b-4386-b410-1383627bc519}">
+      <Declaration><![CDATA[PROPERTY PUBLIC Value : BOOL]]></Declaration>
+      <Get Name="Get" Id="{5e522851-3fdc-44d2-960e-9819d53b6bcd}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[Value := _rSwitch.Value;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="Visibility" Id="{a35c6be8-c610-4450-822a-8a50b51090f8}">
+      <Declaration><![CDATA[PROPERTY PUBLIC Visibility : BOOL]]></Declaration>
+      <Set Name="Set" Id="{13fe9c60-01b0-461e-a814-c8e63448beb7}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF _initialized THEN
+	_rSwitch.Visibility := Visibility;
+END_IF]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+  </POU>
+</TcPlcObject>

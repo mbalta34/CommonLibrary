@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <GVL Name="TIMERS" Id="{a8f46cb5-f230-4eac-8b3d-3c67ebf20b60}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	Manager: FB_TimerManager;
+END_VAR
+VAR_GLOBAL CONSTANT
+	MAX_TIMER: INT := 1024;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

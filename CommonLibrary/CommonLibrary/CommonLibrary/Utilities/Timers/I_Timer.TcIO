@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <Itf Name="I_Timer" Id="{9ac5e8ce-e818-4c15-a668-07abdcf7a410}">
+    <Declaration><![CDATA[INTERFACE I_Timer
+]]></Declaration>
+    <Method Name="Execute" Id="{06a442e1-fad7-4217-84f9-25bf203c3a8a}">
+      <Declaration><![CDATA[METHOD Execute
+]]></Declaration>
+    </Method>
+    <Method Name="Register" Id="{eb5135c7-2316-425f-8c27-94d145cf86e7}">
+      <Declaration><![CDATA[METHOD Register
+]]></Declaration>
+    </Method>
+  </Itf>
+</TcPlcObject>

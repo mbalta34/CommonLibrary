@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Refactors>
+  <Renames>
+    <RenamedType>
+      <Type guid="fb1af245-de7f-4d60-be89-f5091a8e41b6">STOP</Type>
+      <From>Stop</From>
+      <To>Reset</To>
+    </RenamedType>
+  </Renames>
+</Refactors>

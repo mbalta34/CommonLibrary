@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Refactors>
+  <Renames>
+    <RenamedType>
+      <Type guid="fb1af245-de7f-4d60-be89-f5091a8e41b6">STOP</Type>
+      <From>Stop</From>
+      <To>Reset</To>
+    </RenamedType>
+    <RenamedType>
+      <Type guid="c3698ac7-38df-4291-b13c-14e193924f32">FB_HMI_BASE</Type>
+      <From>FB_Hmi_Base</From>
+      <To>FB_Hmi_Component</To>
+    </RenamedType>
+    <RenamedType>
+      <Type guid="88713cc5-8b82-46e1-8462-6e1bd39a71c9">FB_HMI_BUTTON_1</Type>
+      <From>FB_Hmi_Button_1</From>
+      <To>FB_Hmi_Switch</To>
+    </RenamedType>
+    <RenamedType>
+      <Type guid="0d68efc3-8c97-4e42-aeb6-19d53aaaeaa5">S_HMI_BUTTON_1</Type>
+      <From>S_Hmi_Button_1</From>
+      <To>S_Hmi_Switch</To>
+    </RenamedType>
+  </Renames>
+</Refactors>

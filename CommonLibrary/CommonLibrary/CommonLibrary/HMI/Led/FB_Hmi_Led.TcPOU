@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_Hmi_Led" Id="{629fea12-c436-4ed1-9312-b78a6f33c585}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Hmi_Led
+VAR
+	_rLed: REFERENCE TO S_Hmi_Led;
+
+	_blink: BOOL;
+	_blinkTime: TIME;
+	_Blinker: FB_Timer;
+
+	_initialized: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF _blink THEN
+	IF _Blinker.Done THEN
+		_Blinker.Start(_blinkTime);
+		_rLed.OnOff := NOT _rLed.OnOff;
+	END_IF
+
+	_Blinker();
+END_IF]]></ST>
+    </Implementation>
+    <Property Name="Blink" Id="{24256100-f185-4ab0-9bd9-6faa3bcaa067}">
+      <Declaration><![CDATA[PROPERTY PUBLIC Blink : BOOL]]></Declaration>
+      <Set Name="Set" Id="{e73eeed1-a2fc-4be7-920d-2ff398949c89}">
+        <Declaration><![CDATA[
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_blink := Blink;
+_rLed.OnOff := FALSE;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="BlinkTime" Id="{cd96fd92-f08c-4627-8d73-44bcf2dd44c7}">
+      <Declaration><![CDATA[PROPERTY PUBLIC BlinkTime : TIME]]></Declaration>
+      <Set Name="Set" Id="{20b97150-0a5c-48b2-8668-ed751543bb5d}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[BlinkTime := _blinkTime;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Method Name="Initialize" Id="{1f17b9b0-7303-42ad-8ed9-7054ea71c975}">
+      <Declaration><![CDATA[METHOD PUBLIC Initialize : BOOL
+VAR_INPUT
+	rLed: REFERENCE TO S_Hmi_Led;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF __ISVALIDREF(rLed) THEN
+	_rLed REF= rLed;
+	_initialized := Initialize := TRUE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="OffColor" Id="{4493657e-7507-403f-85e1-b1f270d9f0a6}">
+      <Declaration><![CDATA[PROPERTY PUBLIC OffColor : UINT]]></Declaration>
+      <Set Name="Set" Id="{298e6dad-e893-4663-a6a0-9d73e5fe510f}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_rLed.OffColor := OffColor;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="OnColor" Id="{6751ab28-320c-449b-9461-494d5cabf93d}">
+      <Declaration><![CDATA[PROPERTY PUBLIC OnColor : UINT]]></Declaration>
+      <Set Name="Set" Id="{f6b81999-6efb-45ba-a7c4-2290a3abc8af}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_rLed.OnColor := OnColor;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="OnOff" Id="{7c2e37f6-22b6-4019-a01a-20f898899411}">
+      <Declaration><![CDATA[PROPERTY PUBLIC OnOff : BOOL]]></Declaration>
+      <Set Name="Set" Id="{7f2ea347-8b3c-4369-9309-65fe19aa3ca3}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_rLed.OnOff := OnOff;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="Visibility" Id="{f1ca3213-c9b8-41cb-bd21-2770983b098c}">
+      <Declaration><![CDATA[PROPERTY PUBLIC Visibility : BOOL]]></Declaration>
+      <Set Name="Set" Id="{8af37679-8928-40a4-9810-0c143709bd3c}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_rLed.Visibility := Visibility;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <LineIds Name="FB_Hmi_Led">
+      <LineId Id="9" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="19" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Hmi_Led.Blink.Set">
+      <LineId Id="2" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Hmi_Led.BlinkTime.Set">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Hmi_Led.Initialize">
+      <LineId Id="5" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="11" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Hmi_Led.OffColor.Set">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Hmi_Led.OnColor.Set">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Hmi_Led.OnOff.Set">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Hmi_Led.Visibility.Set">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

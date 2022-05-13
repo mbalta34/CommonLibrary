@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_Hmi_Button" Id="{a617f7ad-fb3b-4a46-851f-875681a96aba}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Hmi_Button EXTENDS FB_Hmi_Component
+VAR
+	_rButton: REFERENCE TO S_Hmi_Button;
+
+	_Led: FB_Hmi_Led;
+
+	_behaviour: E_Hmi_ButtonBehaviour;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF _initialized THEN
+	IF _behaviour = E_Hmi_ButtonBehaviour.MomentaryOff THEN
+		_rButton.Value := TRUE;
+	ELSIF _behaviour = E_Hmi_ButtonBehaviour.MomentaryOn THEN
+		_rButton.Value := FALSE;
+	END_IF
+
+	IF _rButton.Click THEN
+		CASE _behaviour OF
+			E_Hmi_ButtonBehaviour.MomentaryOff:
+				Reset();
+
+			E_Hmi_ButtonBehaviour.MomentaryOn:
+				Set();
+
+			E_Hmi_ButtonBehaviour.Reset:
+				Reset();
+
+			E_Hmi_ButtonBehaviour.Set:
+				Set();
+
+			E_Hmi_ButtonBehaviour.Toggle:
+				Toggle();
+		END_CASE
+	END_IF
+END_IF
+
+_rButton.Click := FALSE;]]></ST>
+    </Implementation>
+    <Property Name="Enabled" Id="{5b4cf018-ce66-4b92-8000-7260fe469dc8}">
+      <Declaration><![CDATA[PROPERTY PUBLIC Enabled : BOOL]]></Declaration>
+      <Set Name="Set" Id="{2793329d-7047-48a2-9868-24a2d32378e8}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_rButton.Enabled := Enabled;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Method Name="Initialize" Id="{e3910462-5f99-46e6-a6aa-9b16848dc198}">
+      <Declaration><![CDATA[METHOD PUBLIC Initialize : BOOL
+VAR_INPUT
+	rButton: REFERENCE TO S_Hmi_Button;
+	behaviour: E_Hmi_ButtonBehaviour;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF __ISVALIDREF(rButton) THEN
+	_Led.initialize(rButton.Led);
+	_rButton REF= rButton;
+	_behaviour := behaviour;
+
+	_initialized := Initialize := TRUE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="Led" Id="{2886d8f7-91ae-4509-a03a-8ce26d6320e8}">
+      <Declaration><![CDATA[PROPERTY PUBLIC Led : POINTER TO FB_Hmi_Led;]]></Declaration>
+      <Get Name="Get" Id="{d00133b7-c570-4520-9dd4-1cc0b8ddc711}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[Led := ADR(_Led);]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Method Name="Reset" Id="{e5c166a3-5f3c-4eb9-b57a-708a2a6197b7}">
+      <Declaration><![CDATA[METHOD PUBLIC Reset
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF _initialized AND_THEN _rButton.Enabled THEN
+	_rButton.Value := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Set" Id="{d110b873-8a6f-4d1f-b710-60c6a34d74e5}">
+      <Declaration><![CDATA[METHOD PUBLIC Set
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF _initialized AND_THEN _rButton.Enabled THEN
+	_rButton.Value := TRUE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Toggle" Id="{2e7dfe79-cc01-47d2-a514-773e8cd4ab1d}">
+      <Declaration><![CDATA[METHOD PUBLIC Toggle]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF _initialized AND_THEN _rButton.Enabled THEN
+	_rButton.Value := NOT _rButton.Value;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="Value" Id="{4699e93b-d29c-4866-a3a4-a35fe790999d}">
+      <Declaration><![CDATA[PROPERTY PUBLIC Value : BOOL]]></Declaration>
+      <Get Name="Get" Id="{ba3d2ae5-2beb-480e-86ae-d9f4f4c013ab}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[Value := _rButton.Value;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="Visibility" Id="{f2b03956-52c9-4261-87db-41fea13bbf68}">
+      <Declaration><![CDATA[PROPERTY PUBLIC Visibility : BOOL]]></Declaration>
+      <Set Name="Set" Id="{ec4b2845-fad5-44c3-a7ee-34244c9bb334}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF _initialized THEN
+	_rButton.Visibility := Visibility;
+END_IF]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+  </POU>
+</TcPlcObject>
