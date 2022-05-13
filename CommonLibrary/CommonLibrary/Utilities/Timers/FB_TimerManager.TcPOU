@@ -22,9 +22,10 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[IF ASSERT(iTimer <> 0, CONCAT('FB_TimerManager: Invalid iTimer - ', TO_STRING(_count))) THEN
-	IF ASSERT(_count < TIMERS.MAX_TIMER, CONCAT('FB_TimerManager: Maximum amount of timer has ben exceeded - ', TO_STRING(_count + 1)))THEN
+	IF ASSERT(_count < TIMERS.MAX_TIMER, CONCAT('FB_TimerManager: Maximum amount of timer has ben exceeded - ', TO_STRING(_count + 1))) THEN
 		_count := _count + 1;
 		_aTimers[_count] := iTimer;
+		Register := TRUE;
 	END_IF
 END_IF]]></ST>
       </Implementation>

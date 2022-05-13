@@ -27,13 +27,13 @@
     <Folder Include="Utilities" />
     <Folder Include="Utilities\DUTs" />
     <Folder Include="Utilities\InitializeControl" />
+    <Folder Include="Utilities\InitializeControl\GVLs" />
+    <Folder Include="Utilities\MessageHandler" />
+    <Folder Include="Utilities\GVLs" />
     <Folder Include="Utilities\Timers" />
+    <Folder Include="Utilities\Timers\GVLs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GVL_Param.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
-    </Compile>
     <Compile Include="HMI\Button\DUTs\E_Hmi_ButtonBehaviour.TcDUT">
       <SubType>Code</SubType>
     </Compile>
@@ -64,10 +64,21 @@
     <Compile Include="Utilities\DUTs\LoopIterator.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Utilities\GVLs\GENERAL.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
     <Compile Include="Utilities\InitializeControl\ASSERT.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Utilities\InitializeControl\FB_InitializeControl.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utilities\InitializeControl\GVLs\INITIALIZE.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="Utilities\MessageHandler\FB_MessageHandler.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Utilities\Timers\FB_Timer.TcPOU">
@@ -76,12 +87,12 @@
     <Compile Include="Utilities\Timers\FB_TimerManager.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Utilities\Timers\I_Timer.TcIO">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Utilities\Timers\TIMERS.TcGVL">
+    <Compile Include="Utilities\Timers\GVLs\TIMERS.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="Utilities\Timers\I_Timer.TcIO">
+      <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

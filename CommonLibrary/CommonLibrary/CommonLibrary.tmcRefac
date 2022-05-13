@@ -21,5 +21,10 @@
       <From>S_Hmi_Button_1</From>
       <To>S_Hmi_Switch</To>
     </RenamedType>
+    <RenamedType>
+      <Type guid="06b257ac-07ca-4920-84f4-18d4d6baa90a">GVL_PARAM</Type>
+      <From>GVL_Param</From>
+      <To>GVL_Init</To>
+    </RenamedType>
   </Renames>
 </Refactors>

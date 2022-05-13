@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_MessageHandler" Id="{5e483029-c47c-4224-84f9-f9b80035955b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_MessageHandler
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="m_AddStringParam" Id="{64fe6cab-89b9-4e3b-b0ad-212f70c82c64}">
+      <Declaration><![CDATA[METHOD m_AddStringParam : BOOL
+VAR_INPUT
+	text: REFERENCE TO T_MaxString;
+	param: STRING;
+END_VAR
+VAR
+	_iter: LoopIterator;
+
+	_length: INT;
+	_index: INT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[_length := LEN(text) - 2;
+_length := _length + LEN(param);
+
+
+IF ASSERT(_length > MAX_STRING_LENGTH, CONCAT('FB_TimerManager: Maximum amount of timer has ben exceeded - ', TO_STRING(_count + 1))) THEN
+	RETURN;
+END_IF
+
+FOR _iter := 0 TO LEN(text) DO
+	IF text[_iter] = '%' AND text[_iter + 1] = 'S' THEN
+		_index := _iter;
+		EXIT;
+	END_IF
+END_FOR
+
+text := REPLACE(text, param, 2, _index);
+
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Report" Id="{860efd01-b076-49c0-9779-74de16978f7d}">
+      <Declaration><![CDATA[METHOD Report : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

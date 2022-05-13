@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
   <POU Name="FB_InitializeControl" Id="{421fb946-2c15-47dd-b9c5-885068f850a4}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_InitializeControl
 VAR
 	_passed: BOOL;
-	_initList: ARRAY [1..MAX_INIT_LIST] OF BOOL;
+	_initList: ARRAY [1..INITIALIZE.MAX_INIT_LIST] OF BOOL;
 	_headerText: STRING;
 	_totalCounter: INT;
 	_passedCounter: INT;
@@ -14,10 +14,7 @@ END_VAR]]></Declaration>
       <ST><![CDATA[]]></ST>
     </Implementation>
     <Method Name="Footer" Id="{08800716-2bb4-4597-bfa2-2205d1cbf566}">
-      <Declaration><![CDATA[METHOD Footer
-VAR
-	_text: STRING;
-END_VAR]]></Declaration>
+      <Declaration><![CDATA[METHOD Footer]]></Declaration>
       <Implementation>
         <ST><![CDATA[ADSLOGSTR(msgCtrlMask := ADSLOG_MSGTYPE_ERROR, msgFmtStr := 'Total Tests: %s', TO_STRING(_totalCounter));
 ADSLOGSTR(msgCtrlMask := ADSLOG_MSGTYPE_ERROR, msgFmtStr := 'Passed: %s', TO_STRING(_passedCounter));
@@ -67,38 +64,5 @@ _passed := Passed AND _passed;]]></ST>
         </Implementation>
       </Set>
     </Property>
-    <LineIds Name="FB_InitializeControl">
-      <LineId Id="9" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_InitializeControl.Footer">
-      <LineId Id="5" Count="0" />
-      <LineId Id="8" Count="1" />
-      <LineId Id="11" Count="0" />
-      <LineId Id="10" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_InitializeControl.Header">
-      <LineId Id="20" Count="0" />
-      <LineId Id="22" Count="0" />
-      <LineId Id="21" Count="0" />
-      <LineId Id="5" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_InitializeControl.Passed.Get">
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_InitializeControl.Passed.Set">
-      <LineId Id="5" Count="0" />
-      <LineId Id="7" Count="1" />
-      <LineId Id="11" Count="0" />
-      <LineId Id="10" Count="0" />
-      <LineId Id="14" Count="0" />
-      <LineId Id="13" Count="0" />
-      <LineId Id="15" Count="0" />
-      <LineId Id="17" Count="1" />
-      <LineId Id="16" Count="0" />
-      <LineId Id="12" Count="0" />
-      <LineId Id="9" Count="0" />
-      <LineId Id="4" Count="0" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>
