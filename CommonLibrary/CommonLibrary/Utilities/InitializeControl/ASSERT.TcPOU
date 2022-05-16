@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
   <POU Name="ASSERT" Id="{be57aea1-06b2-4728-8914-c9a75b85e098}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION ASSERT : BOOL
 VAR_INPUT
@@ -16,5 +16,9 @@ END_IF
 
 ASSERT := passed;]]></ST>
     </Implementation>
+    <LineIds Name="ASSERT">
+      <LineId Id="3" Count="3" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

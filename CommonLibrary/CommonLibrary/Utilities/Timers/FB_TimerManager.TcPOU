@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
   <POU Name="FB_TimerManager" Id="{15ecb0f5-db53-447e-bb3c-cfce3e6e2076}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_TimerManager
 VAR
@@ -30,5 +30,13 @@ END_VAR
 END_IF]]></ST>
       </Implementation>
     </Method>
+    <LineIds Name="FB_TimerManager">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_TimerManager.Register">
+      <LineId Id="3" Count="5" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

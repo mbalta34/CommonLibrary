@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="E_Msg_Behaviour" Id="{1bd8f28c-49cc-4258-be13-dbe4cebaae07}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE E_Msg_Behaviour :
+(
+	Info := 0 ,
+	Warning := 1,
+	SectionCriticalError := 2,
+	GlobalCriticalError := 3
+)UINT;
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

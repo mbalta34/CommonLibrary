@@ -26,5 +26,15 @@
       <From>GVL_Param</From>
       <To>GVL_Init</To>
     </RenamedType>
+    <RenamedType>
+      <Type guid="1e605d87-edf2-4009-8a27-42e87af365bf">S_MESSAGE</Type>
+      <From>S_Message</From>
+      <To>S_Msg_Message</To>
+    </RenamedType>
+    <RenamedType>
+      <Type guid="1bd8f28c-49cc-4258-be13-dbe4cebaae07">DUT</Type>
+      <From>DUT</From>
+      <To>E_Msg_Behaviour</To>
+    </RenamedType>
   </Renames>
 </Refactors>

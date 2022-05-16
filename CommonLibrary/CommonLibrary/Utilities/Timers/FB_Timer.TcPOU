@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
   <POU Name="FB_Timer" Id="{cf83e778-4f9b-49e1-ad4e-e52c03835e4c}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_Timer IMPLEMENTS I_Timer
 VAR
@@ -88,5 +88,32 @@ END_VAR
 END_IF]]></ST>
       </Implementation>
     </Method>
+    <LineIds Name="FB_Timer">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Timer.Busy.Get">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Timer.Done.Get">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Timer.ElapsedTime.Get">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Timer.Execute">
+      <LineId Id="3" Count="4" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Timer.Register">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Timer.Reset">
+      <LineId Id="3" Count="3" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Timer.Start">
+      <LineId Id="3" Count="7" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

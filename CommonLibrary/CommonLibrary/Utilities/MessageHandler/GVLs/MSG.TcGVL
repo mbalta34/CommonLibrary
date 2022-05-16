@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <GVL Name="MSG" Id="{3a9ecf4f-ec05-48df-bf96-ee488b8e4610}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	aMessages: ARRAY [1..MAX_MESSAGES] OF S_Msg_Message;
+	aMessageHistory: ARRAY [1..MAX_MESSAGES] OF S_Msg_Message;
+END_VAR
+VAR_GLOBAL CONSTANT
+	MAX_MESSAGES: INT := 100;
+	MAX_MESSAGE_HISTORY: INT := 1000;
+ENd_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

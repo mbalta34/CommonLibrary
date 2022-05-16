@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
   <POU Name="FB_InitializeControl" Id="{421fb946-2c15-47dd-b9c5-885068f850a4}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_InitializeControl
 VAR
@@ -64,5 +64,23 @@ _passed := Passed AND _passed;]]></ST>
         </Implementation>
       </Set>
     </Property>
+    <LineIds Name="FB_InitializeControl">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_InitializeControl.Footer">
+      <LineId Id="3" Count="3" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_InitializeControl.Header">
+      <LineId Id="3" Count="2" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_InitializeControl.Passed.Get">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_InitializeControl.Passed.Set">
+      <LineId Id="3" Count="13" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="S_Msg_Message" Id="{1e605d87-edf2-4009-8a27-42e87af365bf}">
+    <Declaration><![CDATA[TYPE S_Msg_Message :
+STRUCT
+	Section: UINT;
+	Id: UINT;
+	Behaviour: E_Msg_Behaviour;
+	Option: E_Msg_Option;
+	Param_1: STRING;
+	Param_2: STRING;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

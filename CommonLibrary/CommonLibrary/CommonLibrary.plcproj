@@ -30,6 +30,8 @@
     <Folder Include="Utilities\InitializeControl\GVLs" />
     <Folder Include="Utilities\MessageHandler" />
     <Folder Include="Utilities\GVLs" />
+    <Folder Include="Utilities\MessageHandler\DUTs" />
+    <Folder Include="Utilities\MessageHandler\GVLs" />
     <Folder Include="Utilities\Timers" />
     <Folder Include="Utilities\Timers\GVLs" />
   </ItemGroup>
@@ -78,8 +80,24 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
+    <Compile Include="Utilities\MessageHandler\DUTs\E_Msg_Acknowledge.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utilities\MessageHandler\DUTs\E_Msg_Behaviour.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utilities\MessageHandler\DUTs\E_Msg_Option.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utilities\MessageHandler\DUTs\S_Msg_Message.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Utilities\MessageHandler\FB_MessageHandler.TcPOU">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utilities\MessageHandler\GVLs\MSG.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
     </Compile>
     <Compile Include="Utilities\Timers\FB_Timer.TcPOU">
       <SubType>Code</SubType>
